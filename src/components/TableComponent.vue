@@ -77,7 +77,7 @@ function generateWord(value: string) {
 }
 function generateData() {
 	tableData.length = 0;
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < 50; i++) {
 		let generatedName: Ref<string> = ref("");
 		let generatedPrice: Ref<number> = ref(0);
 		let generatedQuantity: Ref<number> = ref(0);
