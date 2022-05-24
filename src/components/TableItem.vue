@@ -16,5 +16,3 @@ const props = defineProps<{
 </script>
 
 <style lang="scss"></style>
-
-PROPS { name: '' price '' quantity totalPrice }
