@@ -20,15 +20,8 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-import type { Ref } from "vue";
 import TableItem from "./TableItem.vue";
-
-interface rowData {
-	name: string;
-	itemPrice: number;
-	quantity: number;
-	totalPrice: number;
-}
+import type { rowData } from "../types/types";
 
 const alphabet = [
 	"а",
@@ -78,23 +71,16 @@ function generateWord(value: string) {
 function generateData() {
 	tableData.length = 0;
 	for (let i = 0; i < 50; i++) {
-		let generatedName: Ref<string> = ref("");
-		let generatedPrice: Ref<number> = ref(0);
-		let generatedQuantity: Ref<number> = ref(0);
-		let totalPrice: Ref<number> = ref(0);
-
-		generatedName.value = generateWord(generatedName.value);
-		generatedPrice.value = Number((Math.random() * 1000).toFixed(2));
-		generatedQuantity.value = Math.floor(Math.random() * 100 + 1);
-		totalPrice.value = Number(
-			(generatedPrice.value * generatedQuantity.value).toFixed(2)
-		);
+		let name = generateWord("");
+		let itemPrice = Number((Math.random() * 1000).toFixed(2));
+		let quantity = Math.floor(Math.random() * 100 + 1);
+		let totalPrice = Number((itemPrice * quantity).toFixed(2));
 
 		tableData.push({
-			name: generatedName.value,
-			itemPrice: generatedPrice.value,
-			quantity: generatedQuantity.value,
-			totalPrice: totalPrice.value,
+			name,
+			itemPrice,
+			quantity,
+			totalPrice,
 		});
 	}
 	resultSum.value = tableData.reduce((sum, current) => {

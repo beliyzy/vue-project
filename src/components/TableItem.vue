@@ -8,15 +8,10 @@
 </template>
 
 <script setup lang="ts">
-export interface IRowData {
-	name: string;
-	itemPrice: number;
-	quantity: number;
-	totalPrice: number;
-}
+import type { rowData } from "../types/types";
 
 const props = defineProps<{
-	row: IRowData;
+	row: rowData;
 }>();
 </script>
 
